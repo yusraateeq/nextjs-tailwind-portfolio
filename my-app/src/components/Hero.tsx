@@ -11,7 +11,7 @@ const Hero = () => {
             <div className='mmd:text-left smd:text-center mmd:mt-0 smd:mt-20'>
                 <h1 className='lg:text-6xl smd:text-5xl mb-4 font-bold'>Hi, I am Yusra</h1>
                 <h2 className='text-red-500 lg:text-5xl smd:text-4xl mb-6 font-semibold '>I am a Web Developer</h2>
-                <p className='text-lg md:px-0 smd:px-6'>Hello, my name is Yusra Ateeq. I am 18 years old. I'm a professional Web Developer with more than 1 years experience. I love to try something new for my project.</p>
+                <p className='text-lg md:px-0 smd:px-6'>Hello, my name is Yusra Ateeq. I am 18 years old. I am a professional Web Developer with more than 1 years experience. I love to try something new for my project.</p>
                 <div className='flex items-center gap-6 mt-6 smd:justify-center mmd:justify-start'>
                     <a href="https://www.facebook.com/profile.php?id=61552980219340&mibextid=ZbWKwL" target="_blank"><Image src={icon_1} alt='' width={45} className='hover:-translate-y-2 transition-all'/></a>
                     <a href="https://www.instagram.com/ateeq.yusra?igsh=OWR6Y3lwZjlyZ3Nh"  target="_blank"><Image src={icon_2} alt='' width={40} className='hover:-translate-y-2 transition-all'/></a>

@@ -46,11 +46,19 @@
 
 // const ProjectSection: React.FC = () => {
 //   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+//   const [displayLimit, setDisplayLimit] = useState<number>(6);
+//   const [showAll, setShowAll] = useState<boolean>(false);
 
 //   const filteredProjects =
 //     selectedCategory === "All"
 //       ? projects
 //       : projects.filter(project => project.category === selectedCategory);
+
+//   const projectsToShow = showAll ? filteredProjects : filteredProjects.slice(0, displayLimit);
+
+//   const handleShowMoreLess = () => {
+//     setShowAll(!showAll); // Toggle between showing all and limited projects
+//   };
 
 //   return (
 //     <section className="p-6 space-y-4 bg-zinc-950 pb-20" id="projects">
@@ -61,7 +69,11 @@
 //         {categories.map(category => (
 //           <button
 //             key={category}
-//             onClick={() => setSelectedCategory(category)}
+//             onClick={() => {
+//               setSelectedCategory(category);
+//               setDisplayLimit(6); // Reset display limit when category changes
+//               setShowAll(false); // Reset show all when category changes
+//             }}
 //             className={`px-6 py-2 rounded ${
 //               selectedCategory === category
 //                 ? "bg-red-500 text-white"
@@ -74,7 +86,7 @@
 //       </div>
 
 //       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-//         {filteredProjects.map(project => (
+//         {projectsToShow.map(project => (
 //           <div key={project.id} className="p-6 border rounded shadow mt-14">
 //             <Image
 //               src={project.image}
@@ -88,6 +100,18 @@
 //           </div>
 //         ))}
 //       </div>
+
+//       {/* Show More / Show Less Button */}
+//       {filteredProjects.length > displayLimit && (
+//         <div className="flex justify-center mt-8">
+//           <button
+//             onClick={handleShowMoreLess}
+//             className="px-10 py-4 bg-red-500 text-white rounded-full mt-10"
+//           >
+//             {showAll ? "Show Less" : "Show More"}
+//           </button>
+//         </div>
+//       )}
 //     </section>
 //   );
 // };
@@ -100,7 +124,7 @@
 
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 // Import images from src/assets folder
 import htmlProject1 from "../assets/html-project1.jpg";
@@ -122,7 +146,7 @@ interface Project {
   id: number;
   title: string;
   category: string;
-  image: any;
+  image: StaticImageData; // Specify StaticImageData type for images
 }
 
 const projects: Project[] = [
